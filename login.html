@@ -22,9 +22,9 @@
             <div class="row min-vh-100 align-items-center">
                 <form id="login" class="col-xl-4 col-lg-6 col-md-8 col-sm-10 p-5 mx-auto">
                     <h2 class="mb-4 fw-bold text-light">Entrar</h2>
-                    <input type="email" class="form-control rounded-3 bg-transparent text-light p-2 mb-3" placeholder="Digite seu E-mail">
-                    <input type="password" class="form-control rounded-3 bg-transparent text-light p-2 mb-3"placeholder="Digite sua Senha">
-                    <input type="button" value="Entrar" class="btn text-light" style="background-color: rgb(229, 9, 20)"><br>
+                    <input type="email" id="email" class="form-control rounded-3 bg-transparent text-light p-2 mb-3" placeholder="Digite seu E-mail">
+                    <input type="password" id="senha" class="form-control rounded-3 bg-transparent text-light p-2 mb-3"placeholder="Digite sua Senha">
+                    <input type="button" onclick="login()" value="Entrar" class="btn text-light" style="background-color: rgb(229, 9, 20)"><br>
                     <div class="col text-center my-3 mb-5">
                         <a href="#" class="text-light text-decoration-none">Esqueceu sua senha ?</a>
                     </div>
@@ -45,7 +45,13 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function login(){}
+        function login(){
+            let email = document.getElementById("email").value;
+            let senha = document.getElementById("senha").value;
+            console.log("email = ", email);
+            console.log("senha = ", senha);
+            //alert("Login confirmado!");
+        }
     </script>
 </body>
 </html>
