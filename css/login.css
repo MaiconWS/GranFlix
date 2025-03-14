@@ -1,0 +1,66 @@
+.pos-0{
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.full-banner{
+    min-height: 100vh;
+    width: 100%;
+    background: url(../img/fundo.jpg) 0 0 no-repeat;
+    background-size: cover;
+}
+
+#login {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#login input::placeholder {
+    color: rgb(191,191,191);
+}
+
+
+
+
+
+
+
+/*
+
+Meu Codigo
+
+#img_logo{
+    width: 150px;
+    height: 50px;
+}
+
+.full-banner{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/img/fundo.jpg);
+    background-size: cover;
+}
+
+.pos-0{
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#login{
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 15px;
+}
+
+#login input::placeholder{
+    color: rgb(191, 191, 191);
+}
+
+.form{
+    margin: 0 auto;
+}
+
+body{
+    overflow-y: hidden;
+}
+*/
