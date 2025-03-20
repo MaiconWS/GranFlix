@@ -1,11 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GranFlix - Home</title>
+    <link rel="shortcut icon" href="img/favIcon.png" type="image/x-icon">
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    
+    <div class="loader"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">
+                <img src="./img/logo.png" alt="Logo" width="250" class="logo">
+            </a>
+            <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="index.html" aria-current="page" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sobre.html" class="nav-link">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pesquisar.html" class="nav-link">Pesquisar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="btn btn-danger ms-sm-3 text-while">Entrar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0">
+        <div class="carousel slide carousel-light carousl-fade" id="carouselBanner" data-bd-ride="carousel">
+            <div class="carousel-inner" id="carousel-home">
+                <div class="carousel-item active" data-bs-interval="8000">
+                    <img src="img/banner/moana2.jpg" alt="Moana 2" class="d-block w-100">
+                    <div class="carousel-caption d-md-block">
+                        <h3>Moana 2</h3>
+                        <p class="d-none d-md-block">
+                            Depois de receber um chamado inesperado de seus ancestrais navegadores,
+                             Moana vai viajar para mares disantes da Oceania,
+                              em águas perdidas em uma aventura perigosa.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="8000">
+                    <img src="img/banner/capitao-america-4.jpg" 
+                    alt="Capitão América: Admirável Mundo Novo" 
+                    class="d-block w-100">
+                    <div class="carousel-caption d-md-block">
+                        <h3>Capitão América: Admirável Mundo Novo</h3>
+                        <p class="d-none d-md-block">
+                            Após se encontar com recém-eleito presidente dos EUA,
+                            Thaddeus Ross, Sam se vê no meio de um incidente internacional.
+                            Ele deve descobrir o motivo por trás de uma conspiração global
+                            nefasta antes que o verdadeiro gênio faça o mundo inteiro ser
+                             dominado pelo vermelho.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="8000">
+                    <img src="img/banner/entre-montanhas.jpg" 
+                    alt="Entre monatanhas" 
+                    class="d-block w-100">
+                    <div class="carousel-caption d-md-block">
+                        <h3>Entre monatanhas</h3>
+                        <p class="d-none d-md-block">
+                            Dois agentes altamente treinados se aproxima à distância após 
+                            serem enviados para proteger lados opostos de um desfiladeiro 
+                            misterioso. Quando um mal emerge, eles precisam trabalhar juntos
+                            para sobreviver ao que está lá dentro.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="8000">
+                    <img src="img/banner/acompanhante-perfeita.jpg" 
+                    alt="Acompanhante Perfeita" 
+                    class="d-block w-100">
+                    <div class="carousel-caption d-md-block">
+                        <h3>Acompanhante Perfeita</h3>
+                        <p class="d-none d-md-block">
+                            Uma viagem de fim de semana se torna sangrenta e violenta quando
+                            uma androide subserviente, criada para a companhia humana,
+                            simplesmente enlouquece.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselBanner"
+            data-bd-ride="prev"
+            >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselBanner"
+            data-bd-ride="next"
+            >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </div>
+    <div class="container my-5 px-5">
+        <div class="row">
+            <h4 class="text-white">Filmes em Destaque</h4>
+            <div class="rowposter mt-3 p-2" id="trendingMovies"></div>
+        </div>
+        <div class="row mt-5">
+            <h4 class="text-white">Filmes com as Melhores Avaliações</h4>
+            <div class="rowposter mt-3 p-2" id="topRatedMovies"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
