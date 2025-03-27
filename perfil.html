@@ -66,6 +66,58 @@
                 </div>
                 <button class="btn btn-lg mt-4 rounded-0 gerenciar" onclick="gerenciarPerfil()" type="button" id="gerenciar">Gerenciar perfis</button>
             </div>
+
+            <div data-bs-theme="dark" class="edicao min-vh-100 d-none flex-colum justify-content-center align-items-center mt-5 py-5">
+                <div class="container w-75 mb-4">
+                    <h1 class="text-white mb-0">Editar Perfil</h1>
+                    <hr class="text-white">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-2 mb-5">
+                            <div class="position-relative">
+                                <img src="img/users/avatar2.png" width="100%" alt="" class="rounded-4">
+                                <i class="bi bi-pencil-fill btn-avatar"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-9 col-md-9 text-white mb-2">
+                            <input type="text" id="nomeEdicao" autocomplete="" class="form-control">
+                            <label class="form-labl fs-5 mt-3">Idioma</label>
+                            <select name="idioma" id="idioma" class="form-select">
+                                <option>Português</option>
+                                <option>Inglês</option>
+                                <option>Espanhol</option>
+                            </select>
+                            <label class="form-labl fs-5 mt-3">Game ID:</label>
+                            <label class="form-labl fs-5 mt-3">Seu ID é um nome exclusivo que será usado ao jogar
+                                 outros assinantes na GranFlix Games, <b>Saiba mais.</b></label>
+                            <input type="text" id="gameId" placeholder="Criar Game Id" maxlength="16" class="form-control" onclick="countText()">
+                            <label class="form-label fs-6 mt-1 float-end"><span id="caracteres">0</span>/16</label>
+                            <hr class="text-white mt-2">
+                            <label class="form-label fs-5 mt-4 d-block">Configurações de classificação etária:</label>
+                            <label class="form-label fs-6 mt-1 btn-classificacoes">Todas as classificações etárias</label>
+                            <label class="form-label fs-6 mt-1 d-block">Mostrar títulos de todas as classificações etáriaspara este perfil.</label>
+                            <button class="btn btn-sm rounded-0 editar my-3" type="button">Editar</button>
+                            <hr class="text-white mt-2">
+                            <label class="form-label fs-5 mt-3">Controles de inicio automatico</label>
+
+                            <div class="d-flex">
+                                <input type="checkbox" id="chkPrevia" class="form-check-input reproducao me-2">
+                                <label for="chkPrevia" class="form-check-label">
+                                    Iniciar automaticamente o próximo episodio de uma série em todos os aparalhos.
+                                </label>
+
+                                <div class="d-flex">
+                                    <input type="checkbox" id="chkPrevia" class="form-check-input reproducao me-2">
+                                    <label for="chkPrevia" class="form-check-label">
+                                        Reproduzir automaticamente as prévias ao navegar em todos os aparelhos.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
         </div>
     </main>
 
