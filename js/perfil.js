@@ -1,9 +1,3 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    setTimeout(() =>{
-        toggleLoading();
-    }, 2000);
-});
-
 let perfil = [];
 let emEdicao = false;
 let perfilEdicao = null;
@@ -28,12 +22,12 @@ function inicializarDados() {
                 crianca: true
             },
         ];
-        localStorage.setItem("rantiete-users", JSON.stringify(dados));
+        localStorage.setItem("grantiete-users", JSON.stringify(dados));
     }
     perfis = dados;
 }
 
-document.addEventListener("DOMContentLoaded", async () =>{
+document.addEventListener("DOMContentLoaded", async () => {
     carregarPerfis();
     toggleLoading();
     let nome = document.getElementById('Nome');
@@ -58,7 +52,7 @@ function carregarPerfis() {
             `<div class="card rounded-4">
                 <a href="#" class="text-decoration-none" onclick="redirecionarPagina('${perfil.nome}')">
                     <div id="profile-image" class="position-relative rounded-4" >
-                        <img src="${perfil.avatar}" alt="Avatar" class"img-fluid rounded-4">
+                        <img src="${perfil.avatar}" alt="Avatar" class="img-fluid rounded-4">
                         <i class="icon bi bi-pencil-fill"></i>
                     </div>
                     <p class="text-secondary text-center mt-2 fs-5">${perfil.nome}</p>
@@ -104,8 +98,89 @@ function gerenciarPerfil(){
         button.classList.add('gerenciar');
     } else {
         button.innerText= 'Concluído';
-        button.classList.remove('gerenciando');
-        button.classList.add('gerenciar');
+        button.classList.add('gerenciando');
+        button.classList.remove('gerenciar');
     }
     emEdicao = display == 'flex';
+}
+
+function exibirEdicaoPerfil(perfil) {
+    let divPerfis = document.querySelector('.perfis');
+    divPerfis.classList.remove('d-flex');
+    divPerfis.classList.add('d-none');
+    let divEdicao = document.querySelector('.edicao');
+    divEdicao.classList.remove('d-none');
+    divEdicao.classList.add('d-flex');
+    let p = perfis.find(o => o.nome == perfil);
+    perfilEdicao = perfis.indexOf(p);
+    document.querySelector('#avatar').src = p.avatar;
+    document.querySelector('#nomeEdicao').value = p.nome;
+}
+
+function exibirExcluirPerfil(perfil) {
+    let divPerfis = document.querySelector('.perfis');
+    divPerfis.classList.remove('d-flex');
+    divPerfis.classList.add('d-none');
+    let divEdicao = document.querySelector('.edicao');
+    divEdicao.classList.remove('d-none');
+    divEdicao.classList.add('d-flex');
+    let divExcluir = document.querySelector('.excluir');
+    divExcluir.classList.remove('d-none');
+    divExcluir.classList.add('d-flex');
+    let p = perfis.find(o => o.nome == perfil);
+    perfilEdicao = perfis.indexOf(p);
+    document.querySelector('#avatarExcluir').src = p.avatar;
+    document.querySelector('#nomeExcluir').value = p.nome;
+}
+
+function exibirPainelPerfil() {
+    let divEdicao = document.querySelector('.edicao');
+    divEdicao.classList.remove('d-flex');
+    divEdicao.classList.add('d-none');
+    let divExcluir = document.querySelector('.excluir');
+    divExcluir.classList.remove('d-none');
+    divExcluir.classList.add('d-flex');
+    let divPerfis = document.querySelector('.perfis');
+    divPerfis.classList.remove('d-none');
+    divPerfis.classList.add('d-flex');
+}
+
+function redirecionarPagina(perfil) {
+    if (emEdicao) {
+        exibirEdicaoPerfil(perfil);
+    } else {
+        window.location.href = 'index.html';
+    }
+}
+
+function countText() {
+    let charCount = document.getElementById('gameId').value.length;
+    document.getElementById('caracteres').innerText = charCount;
+}
+
+function atualizarPerfil() {
+    let perfil = {
+        nome: document.getElementById('nomeEdicao').value,
+        avatar: 'img/users/avatar2.png',
+        crianca: perfis[perfilEdicao].crianca,
+    }
+    perfis[perfilEdicao] = perfil;
+    localStorage.setItem("grantiete-users", JSON.stringify(perfis));
+    carregarPerfis();
+    let icons = document.querySelectorAll('.icon');
+    icons.forEach(icon => {
+        icon.style.display = 'flex';
+    });
+    exibirPainelPerfil();
+}
+
+function excluirPerfil() {
+    perfis.slice(perfilEdicao, 1);
+    localStorage.setItem("grantiete-users", JSON.stringify(perfis));
+    carregarPerfis();
+    let icons = document.querySelectorAll('.icon');
+    icons.forEach(icon => {
+        icon.style.display = 'flex';
+    });
+    exibirPainelPerfil();
 }
