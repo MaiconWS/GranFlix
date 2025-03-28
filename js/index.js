@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     await banner();
     await trendingMovies();
@@ -6,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     setTimeout(() => {
         toggleLoading();
-    }, 2000);
+    }, 2000);   
 
     let trendingContainer = document.querySelector("#trendingMovies");
     trendingContainer.innerHTML = "";
