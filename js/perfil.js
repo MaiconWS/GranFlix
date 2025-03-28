@@ -75,7 +75,7 @@ function adicionarPerfil() {
     let perfil = {
         nome: document.getElementById('Nome').value,
         avatar: 'img/users/avatar2.png',
-        crianca: document.getElementById('Crianca').ariaChecked,
+        crianca: document.getElementById('Crianca').checked,
     }
     perfis.push(perfil);
     localStorage.setItem("grantiete-users", JSON.stringify(perfis));
@@ -85,14 +85,14 @@ function adicionarPerfil() {
     carregarPerfis();
 }
 
-function gerenciarPerfil(){
+function gerenciarPerfil() {
     let icons = document.querySelectorAll('.icon');
     let display = icons[0].style.display == 'none' ? "flex" : "none";
     icons.forEach(icon => {
         icon.style.display = display;
     });
     let button = document.querySelector('#gerenciar');
-    if(display == 'none'){
+     if (display == 'none') {
         button.innerText = 'Gerenciar perfis';
         button.classList.remove('gerenciando');
         button.classList.add('gerenciar');
@@ -122,8 +122,8 @@ function exibirExcluirPerfil(perfil) {
     divPerfis.classList.remove('d-flex');
     divPerfis.classList.add('d-none');
     let divEdicao = document.querySelector('.edicao');
-    divEdicao.classList.remove('d-none');
-    divEdicao.classList.add('d-flex');
+    divEdicao.classList.remove('d-flex');
+    divEdicao.classList.add('d-none');
     let divExcluir = document.querySelector('.excluir');
     divExcluir.classList.remove('d-none');
     divExcluir.classList.add('d-flex');
@@ -138,8 +138,8 @@ function exibirPainelPerfil() {
     divEdicao.classList.remove('d-flex');
     divEdicao.classList.add('d-none');
     let divExcluir = document.querySelector('.excluir');
-    divExcluir.classList.remove('d-none');
-    divExcluir.classList.add('d-flex');
+    divExcluir.classList.remove('d-flex');
+    divExcluir.classList.add('d-none');
     let divPerfis = document.querySelector('.perfis');
     divPerfis.classList.remove('d-none');
     divPerfis.classList.add('d-flex');
@@ -175,7 +175,7 @@ function atualizarPerfil() {
 }
 
 function excluirPerfil() {
-    perfis.slice(perfilEdicao, 1);
+    perfis.splice(perfilEdicao, 1);
     localStorage.setItem("grantiete-users", JSON.stringify(perfis));
     carregarPerfis();
     let icons = document.querySelectorAll('.icon');
